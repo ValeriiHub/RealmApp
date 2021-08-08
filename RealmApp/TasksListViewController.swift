@@ -6,14 +6,18 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TasksListViewController: UITableViewController {
 
-    
+    var tasksLists: Results<TasksList>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tasksLists = realm.objects(TasksList.self)
+        
+        /*
         // создаем shoppinList
         let shoppinList = TasksList()
         shoppinList.name = "Shoppin List"
@@ -35,6 +39,7 @@ class TasksListViewController: UITableViewController {
         DispatchQueue.main.async {
             StorageManager.saveTasksList([shoppinList, moviesList])
         }
+        */
     }
 
     @IBAction func editButtonPressed(_ sender: Any) {
@@ -55,13 +60,17 @@ class TasksListViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return tasksLists.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskListCell", for: indexPath)
 
+        let tasksList = tasksLists[indexPath.row]
+        
+        cell.textLabel?.text = tasksList.name
+        cell.detailTextLabel?.text = "\(tasksList.tasks.count)"
 
         return cell
     }
@@ -102,15 +111,19 @@ class TasksListViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let tasksList = tasksLists[indexPath.row]
+            let tasksVC = segue.destination as! TasksViewController
+            tasksVC.currentTaskList = tasksList
+        }
     }
-    */
+    
 
 }
 

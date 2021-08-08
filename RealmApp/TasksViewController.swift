@@ -6,13 +6,21 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TasksViewController: UITableViewController {
 
+    var currentTaskList: TasksList!
+    
+    var currentTasks: Results<Task>!
+    var completedTasks: Results<Task>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+ 
+        title = currentTaskList.name
+        
+        filteringTasks()
     }
 
     @IBAction func editButtonPressed(_ sender: Any) {
@@ -28,18 +36,25 @@ class TasksViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return section == 0 ? currentTasks.count : completedTasks.count
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "CURRENT TASK" :  "COMPLETED TASK"
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TasksCell", for: indexPath)
 
+        let task = indexPath.section == 0 ? currentTasks[indexPath.row] : completedTasks[indexPath.row]
 
+        cell.textLabel?.text = task.name
+        cell.detailTextLabel?.text = task.note
+        
         return cell
     }
     
@@ -89,6 +104,13 @@ class TasksViewController: UITableViewController {
     }
     */
 
+    
+    private func filteringTasks() {
+        currentTasks = currentTaskList.tasks.filter("isCompleted = false")
+        completedTasks = currentTaskList.tasks.filter("isCompleted = true")
+        
+        tableView.reloadData()
+    }
 }
 
 extension TasksViewController {

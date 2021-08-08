@@ -13,7 +13,28 @@ class TasksListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // создаем shoppinList
+        let shoppinList = TasksList()
+        shoppinList.name = "Shoppin List"
+        
+        let milk = Task()
+        milk.name = "Milk"
+        milk.note = "2L"                                                // инициализация и настройка свойств по отдельности
+        
+        let bread = Task(value: ["Bread", "", Date(), true])            // инициализация с помощью массива
+        
+        let apples = Task(value: ["name" : "Apples", "note" : "2Kg"])   // инициализация с помощью словаря
+        
+        shoppinList.tasks.append(milk)
+        shoppinList.tasks.insert(contentsOf: [bread, apples], at: 1)   // добавляем tasks массивом с помощью функции insert(contentsOf:at:)
+        
+        // создаем moviesList
+        let moviesList = TasksList(value: ["Movies List", Date(), [["John Wick"], ["Tor", "", Date(), true]]])    // создаем все свойства TasksList в одну строку
+    
+        DispatchQueue.main.async {
+            StorageManager.saveTasksList([shoppinList, moviesList])
+        }
     }
 
     @IBAction func editButtonPressed(_ sender: Any) {

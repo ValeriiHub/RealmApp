@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		3863297E26C026D00079BFF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3863297D26C026D00079BFF8 /* AppDelegate.swift */; };
 		3863298026C026D00079BFF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3863297F26C026D00079BFF8 /* SceneDelegate.swift */; };
-		3863298226C026D00079BFF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3863298126C026D00079BFF8 /* ViewController.swift */; };
 		3863298526C026D00079BFF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3863298326C026D00079BFF8 /* Main.storyboard */; };
 		3863298726C026D30079BFF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3863298626C026D30079BFF8 /* Assets.xcassets */; };
 		3863298A26C026D30079BFF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3863298826C026D30079BFF8 /* LaunchScreen.storyboard */; };
+		3863299226C028C40079BFF8 /* TasksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3863299126C028C40079BFF8 /* TasksListViewController.swift */; };
+		3863299426C028D90079BFF8 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3863299326C028D90079BFF8 /* TasksViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3863297A26C026D00079BFF8 /* RealmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3863297D26C026D00079BFF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3863297F26C026D00079BFF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3863298126C026D00079BFF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3863298426C026D00079BFF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3863298626C026D30079BFF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3863298926C026D30079BFF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3863298B26C026D30079BFF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3863299126C028C40079BFF8 /* TasksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewController.swift; sourceTree = "<group>"; };
+		3863299326C028D90079BFF8 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +60,9 @@
 			children = (
 				3863297D26C026D00079BFF8 /* AppDelegate.swift */,
 				3863297F26C026D00079BFF8 /* SceneDelegate.swift */,
-				3863298126C026D00079BFF8 /* ViewController.swift */,
 				3863298326C026D00079BFF8 /* Main.storyboard */,
+				3863299126C028C40079BFF8 /* TasksListViewController.swift */,
+				3863299326C028D90079BFF8 /* TasksViewController.swift */,
 				3863298626C026D30079BFF8 /* Assets.xcassets */,
 				3863298826C026D30079BFF8 /* LaunchScreen.storyboard */,
 				3863298B26C026D30079BFF8 /* Info.plist */,
@@ -137,8 +140,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3863298226C026D00079BFF8 /* ViewController.swift in Sources */,
 				3863297E26C026D00079BFF8 /* AppDelegate.swift in Sources */,
+				3863299426C028D90079BFF8 /* TasksViewController.swift in Sources */,
+				3863299226C028C40079BFF8 /* TasksListViewController.swift in Sources */,
 				3863298026C026D00079BFF8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +293,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 529RQ8FURU;
 				INFOPLIST_FILE = RealmApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +313,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 529RQ8FURU;
 				INFOPLIST_FILE = RealmApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

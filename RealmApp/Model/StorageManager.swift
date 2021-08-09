@@ -11,10 +11,23 @@ let realm = try! Realm()
 
 class StorageManager {
     
-    static func saveTasksList(_ tasksLists: [TasksList]) {
+    //MARK: - Tasks Lists Methods
+    
+    static func saveTasksList(_ tasksList: TasksList) {
         
         try! realm.write {
-            realm.add(tasksLists)
+            realm.add(tasksList)
+        }
+    }
+
+    
+    
+    
+    //MARK: - Tasks Methods
+    
+    static func saveTask( _ taskList: TasksList, task: Task) {
+        try! realm.write {
+            taskList.tasks.append(task)
         }
     }
 }

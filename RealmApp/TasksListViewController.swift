@@ -15,7 +15,7 @@ class TasksListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tasksLists = realm.objects(TasksList.self)
+        tasksLists = realm.objects(TasksList.self)   // достаём данные из базы
         
         /*
         // создаем shoppinList
@@ -41,6 +41,12 @@ class TasksListViewController: UITableViewController {
         }
         */
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
 
     @IBAction func editButtonPressed(_ sender: Any) {
     }
@@ -51,11 +57,6 @@ class TasksListViewController: UITableViewController {
     
     @IBAction func sortingList(_ sender: UISegmentedControl) {
     }
-    
-
-    
-    
-    
     
     // MARK: - Table view data source
 
@@ -75,43 +76,6 @@ class TasksListViewController: UITableViewController {
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    
     // MARK: - Navigation
 
     
@@ -123,8 +87,6 @@ class TasksListViewController: UITableViewController {
             tasksVC.currentTaskList = tasksList
         }
     }
-    
-
 }
 
 extension TasksListViewController {
@@ -138,7 +100,13 @@ extension TasksListViewController {
         
         let saveAction = UIAlertAction(title: "Save",
                                        style: .default) { _ in
-            guard let text = alertTextField.text, !text.isEmpty else { return }
+            guard let newList = alertTextField.text, !newList.isEmpty else { return }
+            
+            let taskList = TasksList()
+            taskList.name = newList
+            
+            StorageManager.saveTasksList(taskList)
+            self.tableView.insertRows(at: [IndexPath(row: self.tasksLists.count - 1, section: 0)], with: .automatic)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
@@ -153,10 +121,4 @@ extension TasksListViewController {
         
         present(alert, animated: true)
     }
-    
-    
-    
-    
-    
-    
 }

@@ -76,8 +76,7 @@ class TasksListViewController: UITableViewController {
 
         let tasksList = tasksLists[indexPath.row]
         
-        cell.textLabel?.text = tasksList.name
-        cell.detailTextLabel?.text = "\(tasksList.tasks.count)"
+        cell.configure(with: tasksList)
 
         return cell
     }

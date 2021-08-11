@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		382FC34E26C42B3A00C6CB9A /* Extension + UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382FC34D26C42B3A00C6CB9A /* Extension + UITableViewCell.swift */; };
 		3863297E26C026D00079BFF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3863297D26C026D00079BFF8 /* AppDelegate.swift */; };
 		3863298026C026D00079BFF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3863297F26C026D00079BFF8 /* SceneDelegate.swift */; };
 		3863298526C026D00079BFF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3863298326C026D00079BFF8 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		0BFAE36A5BEAF010CC0C5F62 /* Pods_RealmApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		382FC34D26C42B3A00C6CB9A /* Extension + UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITableViewCell.swift"; sourceTree = "<group>"; };
 		3863297A26C026D00079BFF8 /* RealmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3863297D26C026D00079BFF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3863297F26C026D00079BFF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				3863299726C038B60079BFF8 /* Model */,
 				3863297D26C026D00079BFF8 /* AppDelegate.swift */,
 				3863297F26C026D00079BFF8 /* SceneDelegate.swift */,
+				382FC34D26C42B3A00C6CB9A /* Extension + UITableViewCell.swift */,
 				3863298326C026D00079BFF8 /* Main.storyboard */,
 				3863299126C028C40079BFF8 /* TasksListViewController.swift */,
 				3863299326C028D90079BFF8 /* TasksViewController.swift */,
@@ -232,6 +235,7 @@
 				3863299626C038AA0079BFF8 /* Task.swift in Sources */,
 				3863299226C028C40079BFF8 /* TasksListViewController.swift in Sources */,
 				3863298026C026D00079BFF8 /* SceneDelegate.swift in Sources */,
+				382FC34E26C42B3A00C6CB9A /* Extension + UITableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

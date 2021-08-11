@@ -118,7 +118,7 @@ extension TasksViewController {
             guard let newTask = alert.textFields?.first?.text, !newTask.isEmpty else { return }
             
             if let taskName = taskName {
-                if let newNote = alert.textFields?[1].text, !newNote.isEmpty {
+                if let newNote = alert.textFields?.last?.text, !newNote.isEmpty {
                     StorageManager.editTask(taskName, newTask: newTask, newNote: newNote)
                 } else {
                     StorageManager.editTask(taskName, newTask: newTask, newNote: "")
@@ -128,7 +128,7 @@ extension TasksViewController {
                 let task = Task()
                 task.name = newTask
                 
-                if let newNote = alert.textFields?[1].text, !newNote.isEmpty {
+                if let newNote = alert.textFields?.last?.text, !newNote.isEmpty {
                     task.note = newNote
                 }
                 
@@ -146,7 +146,7 @@ extension TasksViewController {
             textField.placeholder = "New Task"
             
             if let taskName = taskName {
-                alert.textFields?.first?.text = taskName.name
+                textField.text = taskName.name
             }
         }
         
@@ -154,7 +154,7 @@ extension TasksViewController {
             textField.placeholder = "Note"
             
             if let taskName = taskName {
-                alert.textFields?[1].text = taskName.note
+                textField.text = taskName.note
             }
         }
         
